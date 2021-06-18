@@ -11,6 +11,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" type="module"></script>
   </head>
   <body>
     <button id="setting-btn" class="setting-btn">
@@ -43,7 +44,9 @@
       <p id="score-container" class="score-container">
         💥score: <span id="score">0</span>
       </p>
-      <div id="end-game-container" class="end-game-container"></div>
+      <div id="end-game-container" class="end-game-container">
+        <!-- <audio src="./assets/correct1.mp3" id="incorrect"></audio> -->
+      </div>
     </div>
     <div class="wavy">
       <span style="--i:1;">L</span>
@@ -59,7 +62,5 @@
       <span style="--i:11;">.</span>
       <span style="--i:12;">.</span>
     </div>
-    
-    <script src="script.js" async defer></script>
   </body>
 </html>

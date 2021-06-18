@@ -1,3 +1,5 @@
+// import { words } from "./words";
+
 const word = document.getElementById("word");
 const text = document.getElementById("text");
 const scoreEl = document.getElementById("score");
@@ -8,16 +10,16 @@ const settings = document.getElementById("setting");
 const settingsForm = document.getElementById("setting-form");
 const difficultySelect = document.getElementById("difficulty");
 
+
 //list of words
-const words= ["apple", "steer", "eight", "drags", "loving", "japan","lovely","farcry","goa","tiger","monkey","kings","small","india","mind","quiet"];
+const words= ["apple", "steer", "eight", "drags", "loving", "japan","lovely","farcry","goa","tiger","monkey","kings","small","india","mind","quiet","vegetables","chicken","hamburger","pizza","biscuits","barbecue","cuisine"];
 
 //init word
 let randomWord;
 let score = 0;
 let time = 10;
 let difficulty =
-  localStorage.getItem("difficulty") !== null
-    ? localStorage.getItem("difficulty")
+  localStorage.getItem("difficulty") !== null? localStorage.getItem("difficulty")
     : "medium";
 //set diff select value
 difficultySelect.value = difficulty;
@@ -55,24 +57,24 @@ function gameOver() {
   endgameEl.innerHTML = `
         <h1>Time ran out</h1>
         <p>Your final score is ${score}</p>
-        <button onclick="location.reload()">Restart</button>
+        <button onclick="location.reload()">Restart</button>  
     `;
   endgameEl.style.display = "flex";
 }
 //event
 text.addEventListener("input", (e) => {
   const insetedText = e.target.value;
-  if (insetedText === randomWord) {
+  if (insetedText === randomWord) {      // checks the given word is correct 
     addWordToDOM();
     updateScore();
     //clear
     e.target.value = "";
     if (difficulty === "hard") {
-      time += 2;
+      time += 1;
     } else if (difficulty === "medium") {
-      time += 3;
+      time += 2;
     } else {
-      time += 4;
+      time += 3;
     }
 
     updateTime();
