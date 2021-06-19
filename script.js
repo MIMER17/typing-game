@@ -1,4 +1,3 @@
-// import { words } from "./words";
 
 const word = document.getElementById("word");
 const text = document.getElementById("text");
@@ -19,8 +18,8 @@ let randomWord;
 let score = 0;
 let time = 10;
 let difficulty =
-  localStorage.getItem("difficulty") !== null? localStorage.getItem("difficulty")
-    : "medium";
+  localStorage.getItem("difficulty")!== null? 
+  localStorage.getItem("difficulty"): "medium";
 //set diff select value
 difficultySelect.value = difficulty;
 //focus on text
@@ -46,7 +45,7 @@ function updateScore() {
 //update time
 function updateTime() {
   time--;
-  timeEl.innerHTML = time + "s";
+  timeEl.innerHTML = time + "sec";
   if (time === 0) {
     clearInterval(timeInterval);
     gameOver();
@@ -70,11 +69,11 @@ text.addEventListener("input", (e) => {
     //clear
     e.target.value = "";
     if (difficulty === "hard") {
-      time += 1;
-    } else if (difficulty === "medium") {
       time += 2;
-    } else {
+    } else if (difficulty === "medium") {
       time += 3;
+    } else {
+      time += 4;
     }
 
     updateTime();
